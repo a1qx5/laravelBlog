@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PostsController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get("/", [PagesController::class,"index"]);
+
+Route::resource("/blog", PostsController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
