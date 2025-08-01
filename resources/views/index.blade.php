@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200">
+    <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-16 border-b border-gray-200">
         <div class="pb-10 pt-10">
             <img src="https://cdn.pixabay.com/photo/2016/01/19/15/05/computer-1149148_1280.jpg" width="700" alt=""/>
         </div>
@@ -38,7 +38,7 @@
         </div>
     </div>
 
-    <div class="text-center p-15 bg-black text-white pb-10 pt-10">
+    <div class="text-center p-16 bg-black text-white py-10">
         <h2 class="text-2xl pb-5 text-l">
             I'm an expert in...
         </h2>
@@ -55,5 +55,45 @@
         <span class="font-extrabold block text-3xl py-1">
             Backend development
         </span>
+    </div>
+
+    <div class="text-center py-16 pt-5">
+        <span class="uppercase text-s text-gray-400">
+            Blog
+        </span>
+
+        <h2 class="text-4xl font-bold py-10">
+            Recent posts
+        </h2>
+
+        <p class="m-auto w-4/5 text-gray-500">
+            Lorem ipsum dolor sit amet consectetur,
+             adipisicing elit. Nesciunt veritatis quos 
+             voluptatibus quas laborum ratione maiores 
+             deleniti blanditiis sequi fugiat architecto 
+             veniam excepturi est illum tempora earum, 
+             delectus maxime consequuntur.
+        </p>
+    </div>
+
+    <div class="sm:grid grid-cols-2 w-4/5 m-auto">
+        <div class="flex bg-yellow-700 text-gray-100 pt-10">
+            <div class="m-auto pt-4 pb-16 sm:m-auto w-4/5 block">
+                <span class="uppercase text-xs">
+                    PHP
+                </span>
+                <h3 class="text-xl font-bold py-10">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias quis provident modi sequi. Molestiae sapiente, unde quo quaerat soluta, velit eius voluptatibus, neque adipisci repudiandae voluptas! Laboriosam consectetur ipsa ipsum.
+                </h3>
+                <a 
+                    href="" 
+                    class="uppercase bg-transparent border-2 border-gray-100 text-gray-100 text-xs font-extrabold py-3 px-5 rounded-3xl">
+                    Find out more
+                </a>
+            </div>
+        </div>
+        <div>
+            <img src="https://cdn.pixabay.com/photo/2016/01/19/15/05/computer-1149148_1280.jpg" width="700" alt=""/>
+        </div>
     </div>
 @endsection
