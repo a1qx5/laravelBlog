@@ -9,6 +9,14 @@
     </div>
 </div>
 
+@if (session()->has("message"))
+    <div class="w-4/5 m-auto mt-10 pl-2">
+        <p class="w-1/6 mb-4 text-gray-50 bg-green-500 rounded-2xl py-4 text-center">
+            {{ session()->get("message") }}
+        </p>
+    </div>
+@endif
+
 @if (Auth::check())
     <div class="pt-15 w-4/5 m-auto">
         <a 
@@ -22,9 +30,9 @@
 @foreach ($posts as $post)
     <div class="sm:grid grid-cols-2 gap:20 w-4/5 mx-auto py-16 border-b border-gray-200">
         <div>
-            <img src="https://cdn.pixabay.com/photo/2016/01/19/15/05/computer-1149148_1280.jpg" width="700" alt=""/>
+            <img src="{{ asset('images/' . $post->image_path) }}" width="700" alt="{{ $post->title }}"/>
         </div>
-        <div>
+        <div class="pl-5">
             <h2 class="text-gray-700 font-bold text-5xl pb-4">
                 {{ $post->title }}
             </h2>
@@ -37,6 +45,27 @@
             <a href="/blog/{{ $post->slug }}" class="uppercase bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
                 Keep reading
             </a>
+            @if (isset(Auth::user()->id) && Auth::user()->id == $post->user_id)
+                <span class="float-right pl-3">
+                    <form 
+                        action="/blog/{{ $post->slug }}"
+                        method="POST">
+                        @csrf
+                        @method("delete")
+                        <button
+                            class="text-red-500 pr-3"
+                            type="submit">
+                            Delete
+                        </button>
+                    </form>
+                </span>
+
+                <span class="float-right">
+                    <a href="/blog/{{ $post->slug }}/edit" class="text-gray-700 italic hover:text-gray-900 hover:bg-gray-300 pb-1 px-2 border-b-2">
+                        Edit
+                    </a>
+                </span>
+            @endif
         </div>
     </div>
 @endforeach
