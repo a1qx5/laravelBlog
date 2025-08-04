@@ -46,19 +46,19 @@
                 Keep reading
             </a>
             @if (isset(Auth::user()->id) && Auth::user()->id == $post->user_id)
-                <span class="float-right pl-3">
-                    <form 
-                        action="/blog/{{ $post->slug }}"
-                        method="POST">
-                        @csrf
-                        @method("delete")
-                        <button
-                            class="text-red-500 pr-3"
-                            type="submit">
-                            Delete
-                        </button>
-                    </form>
-                </span>
+            <span class="float-right pl-3">
+                <form 
+                    action="/blog/{{ $post->slug }}"
+                    method="POST">
+                    @csrf
+                    @method("delete")
+                    <button
+                        class="text-red-500 pr-3"
+                        type="submit">
+                        Delete
+                    </button>
+                </form>
+            </span>
 
                 <span class="float-right">
                     <a href="/blog/{{ $post->slug }}/edit" class="text-gray-700 italic hover:text-gray-900 hover:bg-gray-300 pb-1 px-2 border-b-2">
