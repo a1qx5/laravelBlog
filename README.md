@@ -61,6 +61,4 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 
-44:30
-
-27:08 ramas
+la create si edit (si la delete?) check box si daca e bifat sa se afiseze in slide show

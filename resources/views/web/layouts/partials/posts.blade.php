@@ -40,7 +40,11 @@
 
             <!-- .featured-image -->
             <div class="featured-image">
-                <img src="{{ asset('images/' . $post->image_path) }}" alt="blog-image">
+                @if ($post->image_path != Null)
+                    <img src="{{ asset('images/' . $post->image_path) }}" alt="blog-image">
+                @else
+                    <img src="{{ asset('images/blog/01.jpg') }}" alt="no-image">
+                @endif
             </div>
             <!-- .featured-image -->
 

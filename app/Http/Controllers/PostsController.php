@@ -7,6 +7,7 @@ use App\Models\Post;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\Controller as BaseController;
+use phpDocumentor\Reflection\Types\Null_;
 
 class PostsController extends BaseController
 {
@@ -38,12 +39,16 @@ class PostsController extends BaseController
         $request->validate([
             "title" => "required",
             "description" => "required",
-            "image" => "required|mimes:jpg,png,jpeg|max:5048",
+            "image" => "mimes:jpg,png,jpeg|max:5048",
         ]);
 
+        if ($request->hasFile("image")) {
         $newImageName = uniqid() . "-" . $request->title . "." . $request->image->extension();
 
         $request->image->move(public_path("images"), $newImageName);
+        } else {
+            $newImageName = Null;
+        }
 
         Post::create([
             "title"=> $request->input("title"),
