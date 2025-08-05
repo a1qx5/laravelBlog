@@ -19,7 +19,7 @@ class PostsController extends BaseController
      */
     public function index()
     {
-        return view("blog.index")->with("posts", Post::orderBy("created_at", "DESC")->get());
+        return view("web.pages.homepage.index")->with("posts", Post::orderBy("created_at", "DESC")->get());
     }
 
     /**
