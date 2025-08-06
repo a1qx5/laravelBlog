@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("slug");
             $table->string("title");
             $table->longText("description");
-            $table->string("image_path");
+            $table->string("image_path")->nullable();
             $table->timestamps();
             $table->foreignId("user_id")->constrained();
         });
