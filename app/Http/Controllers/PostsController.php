@@ -42,10 +42,12 @@ class PostsController extends BaseController
             "image" => "mimes:jpg,png,jpeg|max:5048",
         ]);
 
-        if ($request->hasFile("image")) {
-        $newImageName = uniqid() . "-" . $request->title . "." . $request->image->extension();
+        //dd($request->all(), $request->has("promoted_checkbox"), $request->input("promoted_checkbox"));
 
-        $request->image->move(public_path("images"), $newImageName);
+        if ($request->hasFile("image")) {
+            $newImageName = uniqid() . "-" . $request->title . "." . $request->image->extension();
+
+            $request->image->move(public_path("images"), $newImageName);
         } else {
             $newImageName = Null;
         }
@@ -55,7 +57,8 @@ class PostsController extends BaseController
             "description"=> $request->input("description"),
             "slug" => SlugService::createSlug(Post::class, "slug", $request->title),
             "image_path" => $newImageName,
-            "user_id"=> Auth::user()->id
+            "user_id"=> Auth::user()->id,
+            "is_promoted"=> $request->has("promoted_checkbox") ? 1 : 0
         ]);
 
         return redirect("/blog")->with("message","Your post has been added!");
@@ -91,7 +94,8 @@ class PostsController extends BaseController
             "title"=> $request->input("title"),
             "description"=> $request->input("description"),
             "slug" => SlugService::createSlug(Post::class, "slug", $request->title),
-            "user_id"=> Auth::user()->id
+            "user_id"=> Auth::user()->id,
+            "is_promoted"=> $request->has("promoted_checkbox") ? 1 : 0
         ]);
 
         return redirect("/blog")->with("message","Your post has been updated!");

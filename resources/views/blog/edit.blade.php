@@ -40,6 +40,12 @@
             class="bg-transparent block border-0 border-b-2 border-gray-300 w-full h-60 text-xl outline-none mb-12 shadow-md resize-none">{{ $post->description }}</textarea>
 
         <div class="flex justify-start pb-10">
+
+            <div class="py-5 pl-10">
+                <input type="checkbox" name="promoted_checkbox" value="1" class=" size-4" id="is_promoted" {{ $post->is_promoted ? "checked" : ""}}>
+                <label for="is_promoted" class=" font-extrabold text-xl">Promote your post!</label>
+            </div>
+
             <button 
                 type="submit"
                 class="uppercase mt-15 bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl ml-auto">

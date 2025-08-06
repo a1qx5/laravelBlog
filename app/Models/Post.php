@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $fillable = ["title", "slug", "description", "image_path", "user_id"];
+    protected $fillable = ["title", "slug", "description", "image_path", "user_id", "is_promoted"];
+
+    protected $casts = [
+        'is_promoted' => 'boolean',
+    ];
 
     use Sluggable;
 

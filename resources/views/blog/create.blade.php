@@ -46,6 +46,12 @@
                     name="image"
                     class="hidden">
             </label>
+
+            <div class="py-5 pl-10">
+                <input type="checkbox" name="promoted_checkbox" value="1" class=" size-4" id="is_promoted">
+                <label for="is_promoted" class=" font-extrabold text-xl">Promote your post!</label>
+            </div>
+
             <button 
                 type="submit"
                 class="uppercase mt-15 bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl ml-auto">
